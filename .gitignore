@@ -1,13 +1,19 @@
-# Ignore backend env
-Backend/.env
+# Ignore environment file
+.env
 
 # Ignore node modules
-Backend/node_modules/
-frontend/node_modules/
-admin/node_modules/
+node_modules/
 
-# Ignore uploads
-Backend/uploads/
+# Ignore uploads folder
+uploads/
 
-# Backend environment
-Backend/.env
+# Ignore logs
+logs/
+*.log
+npm-debug.log*
+yarn-error.log*
+yarn-debug.log*
+
+# System files
+.DS_Store
+Thumbs.db
