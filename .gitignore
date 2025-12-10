@@ -5,7 +5,6 @@
 node_modules/
 
 # Ignore uploads folder
-uploads/
 
 # Ignore logs
 logs/
