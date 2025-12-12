@@ -28,7 +28,7 @@ export const listFood = async (req, res) => {
     res.json({ success: true, data: foods });
 
   } catch (err) {
-    res.json({ success: false, message: "Error" });
+    res.json({ success: false, message: err });
   }
 };
 

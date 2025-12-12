@@ -33,7 +33,7 @@ const placeOrder = async (req, res) => {
             price_data: {
                 currency: "INR",
                 product_data: { name: "Delivery Charges" },
-                unit_amount: 4000,
+                unit_amount: 2000,
             },
             quantity: 1,
         });
@@ -44,7 +44,11 @@ const placeOrder = async (req, res) => {
             mode: "payment",
             success_url: `${CLIENT_URL}/verify?orderId=${newOrder._id}`,
             cancel_url: `${CLIENT_URL}/verify?orderId=${newOrder._id}&success=false`,
+         
+
         });
+           console.log("CLIENT_URL:", process.env.CLIENT_URL),
+            console.log("Success URL:", `${CLIENT_URL}/verify?orderId=test`);
 
         // Save session_id (optional, Stripe not used in demo)
         await orderModel.findByIdAndUpdate(newOrder._id, {
@@ -55,7 +59,7 @@ const placeOrder = async (req, res) => {
 
     } catch (error) {
         console.log("Error placing order:", error);
-        return res.json({ success: false, message: "Error placing order" });
+        return res.json({ success: false, message: error.message, error });
     }
 };
 
